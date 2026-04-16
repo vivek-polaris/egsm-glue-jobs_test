@@ -1,0 +1,40 @@
+{
+  "name" : "github integration - sample gluejob",
+  "jobMode" : "SCRIPT",
+  "description" : "vivek sharma",
+  "role" : "arn:aws:iam::326343571980:role/AnalyticsGlueAccessRole",
+  "executionProperty" : {
+    "maxConcurrentRuns" : 1
+  },
+  "command" : {
+    "name" : "glueetl",
+    "scriptLocation" : "s3://aws-glue-assets-326343571980-ap-south-1/scripts/github integration - sample gluejob.py",
+    "pythonVersion" : "3"
+  },
+  "defaultArguments" : {
+    "--enable-metrics" : "true",
+    "--enable-spark-ui" : "true",
+    "--spark-event-logs-path" : "s3://aws-glue-assets-326343571980-ap-south-1/sparkHistoryLogs/",
+    "--enable-job-insights" : "true",
+    "--enable-observability-metrics" : "true",
+    "--conf" : "spark.eventLog.rolling.enabled=true",
+    "--enable-glue-datacatalog" : "true",
+    "--job-bookmark-option" : "job-bookmark-disable",
+    "--job-language" : "python",
+    "--TempDir" : "s3://aws-glue-assets-326343571980-ap-south-1/temporary/"
+  },
+  "maxRetries" : 0,
+  "allocatedCapacity" : 2,
+  "timeout" : 480,
+  "maxCapacity" : 2.0,
+  "glueVersion" : "5.0",
+  "numberOfWorkers" : 2,
+  "workerType" : "G.1X",
+  "executionClass" : "STANDARD",
+  "sourceControlDetails" : {
+    "provider" : "GITHUB",
+    "repository" : "egsm-glue-jobs_test",
+    "branch" : "main",
+    "folder" : "manipur"
+  }
+}
